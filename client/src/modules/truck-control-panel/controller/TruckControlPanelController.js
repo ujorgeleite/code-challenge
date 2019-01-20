@@ -1,6 +1,4 @@
-TruckControlPanelController.$inject = ['$interval'];
-
-export default function TruckControlPanelController($interval) {
+export default function TruckControlPanelController() {
 	const vm = this;
 
 }

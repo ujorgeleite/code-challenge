@@ -3,7 +3,7 @@ webpackJsonp([0],{
 /***/ 100:
 /***/ (function(module, exports) {
 
-module.exports = "\n\n\n\n<main class=\"\">\n\t<section class=\"\">\n        <h1>Começando</h1>\n\t</section>\n</main>"
+module.exports = "\n<main class=\"\">\n\t\t<section class=\"\">\n\t\t<h1>Começando</h1>\n\t\t</section>\n\t</main>"
 
 /***/ }),
 
@@ -82,9 +82,7 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 exports.default = TruckControlPanelController;
-TruckControlPanelController.$inject = ['$interval'];
-
-function TruckControlPanelController($interval) {
+function TruckControlPanelController() {
 	var vm = this;
 }
 
