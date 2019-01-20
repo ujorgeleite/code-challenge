@@ -1,7 +1,7 @@
 'use strict';
 const _ThermostatService = require('../services/thermostat-service');
 module.exports = function (app) {
-    app.get('/', function (req, res) { 
+    app.get('/actual', function (req, res) { 
         res.send(_ThermostatService.getAllThermostatState());
     });
 

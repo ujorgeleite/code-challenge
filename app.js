@@ -11,6 +11,8 @@ app.use(function(req, res, next) {
 next();
 });
 
+
+
 app.use(bodyParser.json());       
 app.use(bodyParser.urlencoded({ 
 extended: true
@@ -18,6 +20,10 @@ extended: true
 
 require(global.__base + 'server/routes/thermostat-routes')(app);
 
+
+
+app.use(express.static('.'));
+app.use(express.static('/client/compiled'));
 
 app.listen(config.port, function () {
   console.log(`Running app on port ${config.port}!`);
