@@ -1,7 +1,8 @@
 {
     "scripts": {
         "start": "node app.js",
-        "build": "npm install && webpack --config ./client/webpack.config.js --progress --colors"
+        "build:env:dev": "npm install && webpack --config ./client/webpack.config.js --progress --colors --watch",
+        "build:env:prd": "npm install && webpack --config ./client/webpack.config.js --progress --colors"
     },
     "dependencies": {
         "angular": "^1.5.7",

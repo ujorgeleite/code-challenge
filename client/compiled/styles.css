@@ -1,0 +1,18 @@
+body {
+  padding-top: 50px;
+}
+.menu {
+  background-color: #002080;
+  border-bottom: 3px solid #00134d;
+}
+.menu .container {
+  padding-top: 15px;
+}
+.menu .container a {
+  color: white;
+  margin-right: 15px;
+  font-size: 16px;
+}
+.card-panel {
+  margin-right: 8px;
+}

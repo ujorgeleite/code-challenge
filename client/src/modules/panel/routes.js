@@ -4,11 +4,12 @@ export default function route($stateProvider, $urlMatcherFactoryProvider) {
   $urlMatcherFactoryProvider.strictMode(false);
 
   $stateProvider
-    .state('truck', {
+    .state('panel', {
         cache: false,
         url: '/',
-        controller:'TruckControlPanelController',
-        controllerAs:'truckCtrl',
-        template: require('../truck-control-panel/views/truck_control_panel.html')
+        controller:'PanelController',
+        controllerAs:'panelCtrl',
+        template: require('./views/panel.html')
     });
+    
 }

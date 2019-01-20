@@ -1,9 +1,15 @@
 <!doctype html>
-<html lang="en" ui-view>
+<html lang="en">
 	<head>
 		<meta charset="UTF-8">
 		<title>Code Challenge</title>
 	<link href="vendors.css" rel="stylesheet"><link href="styles.css" rel="stylesheet"></head>
 	<body ng-app="app">
+		<nav class="menu navbar navbar-default navbar-fixed-top">
+			<div class="container">
+				<a ui-sref="panel">Panel</a>
+			</div>
+		</nav>
+		<div ui-view></div>
 	<script type="text/javascript" src="vendor.js"></script><script type="text/javascript" src="bundle.js"></script></body>
 </html>

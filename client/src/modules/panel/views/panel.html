@@ -1,0 +1,25 @@
+<main class="">
+	<section>
+		<div class="title text-center">
+			<h1>Truck Control Panel</h1>
+		</div>
+		<div class="row col-md-offset-2">
+			<div class="panel panel-default col-md-3 card-panel" ng-repeat="thermostate in panelCtrl.thermostates track by thermostate.codigo">
+				<div class="panel-body">
+					<div >
+						<h1 class="text-center">{{thermostate.name}}</h1>
+						<h2 class="text-center">{{thermostate.temperature}}°C</h2>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="container">
+			<div class="btn-group btn-group-justified" role="group" aria-label="Justified button group">
+				<a href="#" class="btn btn-default" role="button">Simulate Door Open</a> 
+				<a href="#" class="btn btn-default" role="button">Simulate Augmented Temperature</a>
+				<a href="#" class="btn btn-default" role="button">Default Values</a>
+			</div>	
+		</div>
+	</section>
+</main>
