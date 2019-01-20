@@ -1,11 +1,10 @@
-
-PanelController.$inject = ['ThermostateService'];
-export default function PanelController(ThermostateService) {
+PanelController.$inject = ['ThermostatService'];
+export default function PanelController(ThermostatService) {
   const vm = this;
-  vm.thermostates = [];
-
-  ThermostateService.getAllSensorsDefault().then(function(response){
-    vm.thermostates = response.data; 
+  vm.thermostats = [];
+  
+  ThermostatService.getAllSensorsDefault().then(function(response){
+    vm.thermostats = response.data; 
   })
 
 

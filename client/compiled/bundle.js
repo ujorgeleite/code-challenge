@@ -7,10 +7,17 @@ webpackJsonp([0],{
 
 /***/ }),
 
-/***/ 102:
+/***/ 101:
 /***/ (function(module, exports) {
 
-module.exports = "<main class=\"\">\n\t<section>\n\t\t<div class=\"title text-center\">\n\t\t\t<h1>Truck Control Panel</h1>\n\t\t</div>\n\t\t<div class=\"row col-md-offset-2\">\n\t\t\t<div class=\"panel panel-default col-md-3 card-panel\" ng-repeat=\"thermostate in panelCtrl.thermostates track by thermostate.codigo\">\n\t\t\t\t<div class=\"panel-body\">\n\t\t\t\t\t<div >\n\t\t\t\t\t\t<h1 class=\"text-center\">{{thermostate.name}}</h1>\n\t\t\t\t\t\t<h2 class=\"text-center\">{{thermostate.temperature}}°C</h2>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\n\t\t<div class=\"container\">\n\t\t\t<div class=\"btn-group btn-group-justified\" role=\"group\" aria-label=\"Justified button group\">\n\t\t\t\t<a href=\"#\" class=\"btn btn-default\" role=\"button\">Simulate Door Open</a> \n\t\t\t\t<a href=\"#\" class=\"btn btn-default\" role=\"button\">Simulate Augmented Temperature</a>\n\t\t\t\t<a href=\"#\" class=\"btn btn-default\" role=\"button\">Default Values</a>\n\t\t\t</div>\t\n\t\t</div>\n\t</section>\n</main>"
+// removed by extract-text-webpack-plugin
+
+/***/ }),
+
+/***/ 103:
+/***/ (function(module, exports) {
+
+module.exports = "<main class=\"\">\n\t<section>\n\t\t<div class=\"title text-center\">\n\t\t\t<h1>Truck Control Panel</h1>\n\t\t</div>\n\t\t<div class=\"row col-md-offset-2\">\n\t\t\t<div class=\"panel panel-default col-md-3 card-panel\" ng-repeat=\"thermostat in panelCtrl.thermostats track by thermostat.codigo\">\n\t\t\t\t<div class=\"panel-body\">\n\t\t\t\t\t<div >\n\t\t\t\t\t\t<h1 class=\"text-center\">{{thermostat.name}}</h1>\n\t\t\t\t\t\t<h2 class=\"text-center\">{{thermostat.temperature}}°C</h2>\n\t\t\t\t\t</div>\n\t\t\t\t</div>\n\t\t\t</div>\n\t\t</div>\n\t\t\n\t\t<div class=\"container\">\n\t\t\t<div class=\"btn-group btn-group-justified\" role=\"group\" aria-label=\"Justified button group\">\n\t\t\t\t<a href=\"#\" class=\"btn btn-default\" role=\"button\">Simulate Door Open</a> \n\t\t\t\t<a href=\"#\" class=\"btn btn-default\" role=\"button\">Simulate Augmented Temperature</a>\n\t\t\t\t<a href=\"#\" class=\"btn btn-default\" role=\"button\">Default Values</a>\n\t\t\t</div>\t\n\t\t</div>\n\t</section>\n</main>"
 
 /***/ }),
 
@@ -24,7 +31,7 @@ var _angularUiRouter = __webpack_require__(20);
 
 var _angularUiRouter2 = _interopRequireDefault(_angularUiRouter);
 
-__webpack_require__(99);
+__webpack_require__(100);
 
 var _panel = __webpack_require__(96);
 
@@ -82,14 +89,13 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 exports.default = PanelController;
-
-PanelController.$inject = ['ThermostateService'];
-function PanelController(ThermostateService) {
+PanelController.$inject = ['ThermostatService'];
+function PanelController(ThermostatService) {
   var vm = this;
-  vm.thermostates = [];
+  vm.thermostats = [];
 
-  ThermostateService.getAllSensorsDefault().then(function (response) {
-    vm.thermostates = response.data;
+  ThermostatService.getAllSensorsDefault().then(function (response) {
+    vm.thermostats = response.data;
   });
 }
 
@@ -105,7 +111,7 @@ Object.defineProperty(exports, "__esModule", {
 				value: true
 });
 
-__webpack_require__(100);
+__webpack_require__(101);
 
 var _angularUiRouter = __webpack_require__(20);
 
@@ -119,13 +125,17 @@ var _PanelController = __webpack_require__(95);
 
 var _PanelController2 = _interopRequireDefault(_PanelController);
 
-var _ThermostateService = __webpack_require__(98);
+var _ThermostatRestService = __webpack_require__(98);
 
-var _ThermostateService2 = _interopRequireDefault(_ThermostateService);
+var _ThermostatRestService2 = _interopRequireDefault(_ThermostatRestService);
+
+var _ThermostatService = __webpack_require__(99);
+
+var _ThermostatService2 = _interopRequireDefault(_ThermostatService);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var Panel = angular.module('app.panel', [_angularUiRouter2.default]).config(_routes2.default).controller('PanelController', _PanelController2.default).service('ThermostateService', _ThermostateService2.default);
+var Panel = angular.module('app.panel', [_angularUiRouter2.default]).config(_routes2.default).controller('PanelController', _PanelController2.default).service('ThermostatRestService', _ThermostatRestService2.default).service('ThermostatService', _ThermostatService2.default);
 
 exports.default = Panel.name;
 
@@ -151,7 +161,7 @@ function route($stateProvider, $urlMatcherFactoryProvider) {
         url: '/',
         controller: 'PanelController',
         controllerAs: 'panelCtrl',
-        template: __webpack_require__(102)
+        template: __webpack_require__(103)
     });
 }
 
@@ -166,37 +176,37 @@ function route($stateProvider, $urlMatcherFactoryProvider) {
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.default = ThermostateService;
-ThermostateService.$inject = ['$http'];
+exports.default = ThermostatRestService;
+ThermostatRestService.$inject = ['$http'];
 
-function ThermostateService($http) {
-  var service = this;
+function ThermostatRestService($http) {
+  var restService = this;
 
-  service.getAllSensorsRefreshed = function () {
+  restService.getAllSensorsRefreshed = function () {
     return $http({
       method: 'GET',
-      url: '/api/thermostate/refreshed'
+      url: '/api/thermostat/refreshed'
     });
   };
 
-  service.getAllSensorsDefault = function () {
+  restService.getAllSensorsDefault = function () {
     return $http({
       method: 'GET',
-      url: '/api/thermostate/default'
+      url: '/api/thermostat/default'
     });
   };
 
-  service.getAllSensorsWithDoorOpen = function () {
+  restService.getAllSensorsWithDoorOpen = function () {
     return $http({
       method: 'GET',
-      url: '/api/thermostate/simulateTruckMovingDoorOpen'
+      url: '/api/thermostat/simulateTruckMovingDoorOpen'
     });
   };
 
-  service.simulateAugmentedTemperature = function () {
+  restService.simulateAugmentedTemperature = function () {
     return $http({
       method: 'PUT',
-      url: '/api/thermostate/simulateAugmentedTemperature'
+      url: '/api/thermostat/simulateAugmentedTemperature'
     });
   };
 }
@@ -204,9 +214,24 @@ function ThermostateService($http) {
 /***/ }),
 
 /***/ 99:
-/***/ (function(module, exports) {
+/***/ (function(module, exports, __webpack_require__) {
 
-// removed by extract-text-webpack-plugin
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+exports.default = ThermostatService;
+ThermostatService.$inject = ['ThermostatRestService'];
+
+function ThermostatService(ThermostatRestService) {
+    var service = this;
+
+    service.getAllSensorsDefault = function () {
+        return ThermostatRestService.getAllSensorsDefault();
+    };
+}
 
 /***/ })
 
