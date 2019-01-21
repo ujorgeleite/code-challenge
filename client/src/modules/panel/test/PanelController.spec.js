@@ -53,12 +53,78 @@ describe('PanelController', () => {
         it('then, error flag for notify that tempearature is out of minimum range is false =>',() => {
           expect(panelController.error.isOutOfMinimun).toBe(false);
         })
+
+        describe(' and when click in simulate INCREASING TEMPERATURE', () => {
+
+          beforeEach(() => {
+            spyOn(ThermostatService,'simulateAugmentedTemperature').and.callFake(() => {
+              return {
+                then: (callback) => {
+                  return callback();
+                }
+              };
+            });
+
+            spyOn(ThermostatService, 'getAllSensorsRefreshed').and.callFake(() => {
+              return {
+                then: (callback) => {
+                  return callback(listBeerTemperatureIncrementedPopuled());
+                }
+              };
+            });
+
+            panelController.simulateIncreasingTemperature();
+
+          })
+
+          it('then, the list from thermostat should be changed => ',() =>{
+            expect(panelController.thermostats).not.toBe(listBeerDefaultPopuled());
+          });
+
+          it('then, the first element from has a differente temperature => ',() =>{
+            expect(panelController.thermostats[0].temperature).toBeGreaterThan(listBeerDefaultPopuled()[0].temperature);
+          });
+
+          it('then, thermostate service method Simulate Augmented Temperature should be caller one time  => ',() =>{
+            expect(ThermostatService.simulateAugmentedTemperature).toHaveBeenCalledTimes(1);
+          });
+
+        })
+
+        describe(' and when click in simulate FALLING TEMPERATURE', () => {
+          beforeEach(() => {
+            spyOn(ThermostatService,'simulateFallingTemperature').and.callFake(() => {
+              return {
+                then: (callback) => {
+                  return callback();
+                }
+              };
+            });
+            spyOn(ThermostatService, 'getAllSensorsRefreshed').and.callFake(() => {
+              return {
+                then: (callback) => {
+                  return callback(listBeerTemperatureDecrementedPopuled());
+                }
+              };
+            });
+            panelController.simulateFallingTemperature();
+          })
+         
+          it('then, the list from thermostat should be changed to default state => ',() =>{
+            expect(panelController.thermostats).not.toBe(listBeerDefaultPopuled());
+          });
+
+          it('then, the first element from has a differente temperature => ',() =>{
+            expect(panelController.thermostats[0].temperature).toBeLessThan(listBeerDefaultPopuled()[0].temperature);
+          });
+
+          it('then, thermostate service method Simulate Falling Temperature should be caller one time  => ',() =>{
+            expect(ThermostatService.simulateFallingTemperature).toHaveBeenCalledTimes(1);
+          });
+
+        });
     });
 });
-
-
-
-
 
 
 function listBeerDefaultPopuled(){
@@ -69,5 +135,27 @@ function listBeerDefaultPopuled(){
           {codigo: '4', name: 'Stout', temperature: 6, isOutOfMinimun: false, isOutOfMaximum: false},
           {codigo: '5', name: 'Wheat beer', temperature: 3, isOutOfMinimun: false, isOutOfMaximum: false},
           {codigo: '6', name: 'Pale Ale', temperature: 4, isOutOfMinimun: false, isOutOfMaximum: false}
+        ]
+}
+
+function listBeerTemperatureIncrementedPopuled(){
+  return[
+          {codigo: '1', name: 'Pilsner', temperature: 5, isOutOfMinimun: false, isOutOfMaximum: false},
+          {codigo: '2', name: 'IPA', temperature: 6, isOutOfMinimun: false, isOutOfMaximum: false},
+          {codigo: '3', name: 'Lager', temperature: 5, isOutOfMinimun: false, isOutOfMaximum: false},
+          {codigo: '4', name: 'Stout', temperature: 7, isOutOfMinimun: false, isOutOfMaximum: false},
+          {codigo: '5', name: 'Wheat beer', temperature: 4, isOutOfMinimun: false, isOutOfMaximum: false},
+          {codigo: '6', name: 'Pale Ale', temperature: 5, isOutOfMinimun: false, isOutOfMaximum: false}
+        ]
+}
+
+function listBeerTemperatureDecrementedPopuled(){
+  return[
+          {codigo: '1', name: 'Pilsner', temperature: 3, isOutOfMinimun: false, isOutOfMaximum: false},
+          {codigo: '2', name: 'IPA', temperature: 4, isOutOfMinimun: false, isOutOfMaximum: false},
+          {codigo: '3', name: 'Lager', temperature: 3, isOutOfMinimun: false, isOutOfMaximum: false},
+          {codigo: '4', name: 'Stout', temperature: 5, isOutOfMinimun: false, isOutOfMaximum: false},
+          {codigo: '5', name: 'Wheat beer', temperature: 3, isOutOfMinimun: false, isOutOfMaximum: false},
+          {codigo: '6', name: 'Pale Ale', temperature: 3, isOutOfMinimun: false, isOutOfMaximum: false}
         ]
 }

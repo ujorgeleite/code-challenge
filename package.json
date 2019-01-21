@@ -3,7 +3,7 @@
         "start": "node app.js",
         "build:env:dev": "webpack --config ./client/webpack.config.js --progress --colors --watch",
         "build:env:prd": "npm install && webpack --config ./client/webpack.config.js --progress --colors",
-        "test": "karma start karma.conf.js"
+        "test": "karma start karma.conf.js --auto-watch"
     },
     "dependencies": {
         "angular": "^1.5.7",
