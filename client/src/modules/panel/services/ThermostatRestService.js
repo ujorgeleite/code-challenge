@@ -32,4 +32,12 @@ export default function ThermostatRestService($http){
       });
     };
 
+    restService.simulateFallingTemperature= () => {
+      return $http({
+        method: 'PUT',
+        url: '/api/thermostat/simulateFallingTemperature'
+      });
+    };
+    
+
 }

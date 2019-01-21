@@ -6,7 +6,8 @@ module.exports = {
     getAllNormalTemperature: getAllNormalTemperature,
     getSortedWarningTemperature: getSortedWarningTemperature,
     setAllHotTemperature: setAllHotTemperature,
-    getAll: getAll
+    getAll: getAll,
+    setAllColdTemperature: setAllColdTemperature
 
 }
 
@@ -22,11 +23,19 @@ function getAll() {
 
 function setAllHotTemperature() {
     allThermostat.forEach(thermostat => {
-        thermostat.temperature +=2;
+        thermostat.temperature ++;
    });
     return allThermostat;
 }
 
+function setAllColdTemperature() {
+    allThermostat.forEach(thermostat => {
+        thermostat.temperature --;
+   });
+
+    return allThermostat;
+
+}
 
 function getSortedWarningTemperature() {
     allThermostat = newValues();

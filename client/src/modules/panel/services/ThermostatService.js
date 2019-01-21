@@ -4,15 +4,38 @@ export default function ThermostatService(ThermostatRestService,SensorToTermosta
     const service = this;
 
     service.getAllSensorsDefault = () => {
-        return ThermostatRestService.getAllSensorsRefreshed()
-                .then(function(response){
-                    let result = [];
-                    response.data.forEach(element => {
-                        result.push(SensorToTermostatMapper.mapTo(element));
-                    }); 
-
-                    return result;
-                });
+        return ThermostatRestService.getAllSensorsDefault()
+                .then(service.processResponseData)
     }
+
+
+    service.getAllSensorsRefreshed = () => {
+        return ThermostatRestService.getAllSensorsRefreshed()
+                .then(service.processResponseData)
+    }
+
+     service.simulateAugmentedTemperature = () => {
+        return ThermostatRestService.simulateAugmentedTemperature();
+    }
+
+    service.simulateFallingTemperature = () => {
+        return ThermostatRestService.simulateFallingTemperature();
+        
+    }
+
     
+
+
+   
+   
+   
+   
+   
+   
+   
+    service.processResponseData = (response) => {
+        return response.data.map(element => {
+            return SensorToTermostatMapper.mapTo(element);
+        });     
+    } 
 }

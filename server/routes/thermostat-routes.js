@@ -25,5 +25,12 @@ module.exports = function (app) {
         _ThermostatService.simulateAugmentedTemperature()
         res.send();
     });
+
+    app.put('/api/thermostat/simulateFallingTemperature', function (req, res) { 
+        _ThermostatService.simulateFallingTemperature()
+        res.send();
+    });
+
+    
     
 };

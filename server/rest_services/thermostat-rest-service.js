@@ -5,7 +5,8 @@ module.exports = {
     getAllNormalTemperature: getAllNormalTemperatureMocked,
     getSortedWarningTemperature: getSortedWarningTemperatureMocked,
     setAllWithAugmentedTemperature: setAllWithAugmentedTemperatureMocked,
-    getAll: getAllMocked
+    getAll: getAllMocked,
+    setAllWithFallingTemperature: setAllWithFallingTemperature
 
 }
 
@@ -24,4 +25,6 @@ function setAllWithAugmentedTemperatureMocked() {
 function getAllMocked() {
     return dataMock.getAll();
 }
-
+function setAllWithFallingTemperature() {
+    return dataMock.setAllColdTemperature();
+}

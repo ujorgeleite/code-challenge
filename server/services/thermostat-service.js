@@ -8,7 +8,8 @@ module.exports = {
     simulateTruckStoppedDoorOpen: simulateTruckStoppedDoorOpen,
     simulateAugmentedTemperature: simulateAugmentedTemperature,
     getAllThermostatNormalState: getAllThermostatNormalState,
-    getAllThermostatState: getAllThermostatState
+    getAllThermostatState: getAllThermostatState,
+    simulateFallingTemperature: simulateFallingTemperature
 
 };
 
@@ -45,3 +46,10 @@ function simulateAugmentedTemperature()
 {
      _ThermostatRestService.setAllWithAugmentedTemperature();
 }
+
+function simulateFallingTemperature()
+{
+     _ThermostatRestService.setAllWithFallingTemperature();
+}
+
+
