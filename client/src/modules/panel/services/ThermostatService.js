@@ -5,7 +5,7 @@ export default function ThermostatService(ThermostatRestService,SensorToTermosta
 
     service.getAllSensorsDefault = () => {
         return ThermostatRestService.getAllSensorsDefault()
-                .then(service.processResponseData)
+                .then((service.processResponseData))
     }
 
 
@@ -22,17 +22,6 @@ export default function ThermostatService(ThermostatRestService,SensorToTermosta
         return ThermostatRestService.simulateFallingTemperature();
         
     }
-
-    
-
-
-   
-   
-   
-   
-   
-   
-   
     service.processResponseData = (response) => {
         return response.data.map(element => {
             return SensorToTermostatMapper.mapTo(element);

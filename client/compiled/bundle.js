@@ -186,25 +186,26 @@ PanelController.$inject = ['ThermostatService'];
 function PanelController(ThermostatService) {
   var vm = this;
   vm.thermostats = [];
+  vm.error = { message: "", isOutOfMaximun: false, isOutOfMinimun: false };
+
   vm.simulateIncreasingTemperature = simulateIncreasingTemperature;
   vm.initializeTruckPanel = initializeTruckPanel;
   vm.simulateFallingTemperature = simulateFallingTemperature;
   vm.closeMessageError = closeMessageError;
-  vm.error = { message: "", isOutOfMaximun: false, isOutOfMinimun: false };
 
   initializeTruckPanel();
 
   function initializeTruckPanel() {
     ThermostatService.getAllSensorsDefault().then(function (response) {
-      showMesssageError(response);
       vm.thermostats = response;
+      showMesssageError(response);
     });
   }
 
   function refreshTruckPanelValues() {
     ThermostatService.getAllSensorsRefreshed().then(function (response) {
-      showMesssageError(response);
       vm.thermostats = response;
+      showMesssageError(response);
     });
   }
 

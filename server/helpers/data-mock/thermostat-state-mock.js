@@ -47,7 +47,7 @@ function getSortedWarningTemperature() {
 
 
 function newValues(){
-    return [   new thermostatModel(1, 'Pilsner', 4 ,4,6),
+    return [new thermostatModel(1, 'Pilsner', 4 ,4,6),
     new thermostatModel(2, 'IPA', 5,5,6),
     new thermostatModel(3, 'Lager',4,4,7),
     new thermostatModel(4, 'Stout', 6,6,8),

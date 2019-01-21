@@ -9,7 +9,9 @@
 /tmp
 /app/**/*.js
 /app/**/*.js.map
-
+/client/compiled/*
+/client/coverage/*
+/client/coverage-client/*
 # dependencies
 /node_modules
 /bower_components
