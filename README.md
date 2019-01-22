@@ -39,7 +39,7 @@ What more could have been done?
 2. Building a upgrade and downgrade module running with angular 7 and angular js
 3. I can test bff
 4. I can do a job for simulate transitions from temperature automatically
-5. Use rxjs for organisation reactivity and flow pipeline from application
+5. Use rxjs for organization reactivity and flow pipeline from application
 
 
 
