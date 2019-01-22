@@ -10,7 +10,8 @@ export default function PanelController(ThermostatService) {
   vm.closeMessageError = closeMessageError
 
   
-
+  initializeTruckPanel();
+  
    function initializeTruckPanel(){
       ThermostatService.getAllSensorsDefault()
               .then(function(response){

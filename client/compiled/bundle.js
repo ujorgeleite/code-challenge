@@ -83,7 +83,6 @@ function ThermostatService(ThermostatRestService, SensorToTermostatMapper) {
     service.simulateFallingTemperature = function () {
         return ThermostatRestService.simulateFallingTemperature();
     };
-
     service.processResponseData = function (response) {
         return response.data.map(function (element) {
             return SensorToTermostatMapper.mapTo(element);
