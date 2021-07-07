@@ -6,7 +6,7 @@
         "test": "karma start karma.conf.js --auto-watch"
     },
     "dependencies": {
-        "angular": "^1.5.7",
+        "angular": "^1.8.0",
         "angular-ui-router": "^1.0.3",
         "body-parser": "^1.17.2",
         "font-awesome": "^4.7.0",
